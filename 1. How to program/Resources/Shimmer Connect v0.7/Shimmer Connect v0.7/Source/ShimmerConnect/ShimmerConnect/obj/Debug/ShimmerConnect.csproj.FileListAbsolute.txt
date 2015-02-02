@@ -1,0 +1,82 @@
+C:\Users\JC Lim\Desktop\Shimmer Connect\ShimmerConnect_source_30-June-2011\ShimmerConnect\ShimmerConnect\bin\Debug\ShimmerConnect.exe.config
+C:\Users\JC Lim\Desktop\Shimmer Connect\ShimmerConnect_source_30-June-2011\ShimmerConnect\ShimmerConnect\bin\Debug\ShimmerConnect.exe
+C:\Users\JC Lim\Desktop\Shimmer Connect\ShimmerConnect_source_30-June-2011\ShimmerConnect\ShimmerConnect\bin\Debug\ShimmerConnect.pdb
+C:\Users\JC Lim\Desktop\Shimmer Connect\ShimmerConnect_source_30-June-2011\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.Configure.resources
+C:\Users\JC Lim\Desktop\Shimmer Connect\ShimmerConnect_source_30-June-2011\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.Control.resources
+C:\Users\JC Lim\Desktop\Shimmer Connect\ShimmerConnect_source_30-June-2011\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.MainForm.resources
+C:\Users\JC Lim\Desktop\Shimmer Connect\ShimmerConnect_source_30-June-2011\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.GraphForm.resources
+C:\Users\JC Lim\Desktop\Shimmer Connect\ShimmerConnect_source_30-June-2011\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.Properties.Resources.resources
+C:\Users\JC Lim\Desktop\Shimmer Connect\ShimmerConnect_source_30-June-2011\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.csproj.GenerateResource.Cache
+C:\Users\JC Lim\Desktop\Shimmer Connect\ShimmerConnect_source_30-June-2011\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.exe
+C:\Users\JC Lim\Desktop\Shimmer Connect\ShimmerConnect_source_30-June-2011\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.pdb
+C:\Users\JC Lim\Desktop\Preparation for Marketing\Shimmer Connect v0.3\Source\ShimmerConnect\ShimmerConnect\bin\Debug\ShimmerConnect.exe.config
+C:\Users\JC Lim\Desktop\Preparation for Marketing\Shimmer Connect v0.3\Source\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.exe
+C:\Users\JC Lim\Desktop\Preparation for Marketing\Shimmer Connect v0.3\Source\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.pdb
+C:\Users\JC Lim\Desktop\Preparation for Marketing\Shimmer Connect v0.3\Source\ShimmerConnect\ShimmerConnect\bin\Debug\ShimmerConnect.exe
+C:\Users\JC Lim\Desktop\Preparation for Marketing\Shimmer Connect v0.3\Source\ShimmerConnect\ShimmerConnect\bin\Debug\ShimmerConnect.pdb
+C:\Users\JC Lim\Desktop\Preparation for Marketing\Shimmer Connect v0.3\Source\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.Configure.resources
+C:\Users\JC Lim\Desktop\Preparation for Marketing\Shimmer Connect v0.3\Source\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.Control.resources
+C:\Users\JC Lim\Desktop\Preparation for Marketing\Shimmer Connect v0.3\Source\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.MainForm.resources
+C:\Users\JC Lim\Desktop\Preparation for Marketing\Shimmer Connect v0.3\Source\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.GraphForm.resources
+C:\Users\JC Lim\Desktop\Preparation for Marketing\Shimmer Connect v0.3\Source\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.Properties.Resources.resources
+C:\Users\JC Lim\Desktop\Preparation for Marketing\Shimmer Connect v0.3\Source\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.csproj.GenerateResource.Cache
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.4\Source\ShimmerConnect\ShimmerConnect\bin\Debug\ShimmerConnect.exe.config
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.4\Source\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.exe
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.4\Source\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.pdb
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.4\Source\ShimmerConnect\ShimmerConnect\bin\Debug\ShimmerConnect.exe
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.4\Source\ShimmerConnect\ShimmerConnect\bin\Debug\ShimmerConnect.pdb
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.4\Source\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.Configure.resources
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.4\Source\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.Control.resources
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.4\Source\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.Visual3DForm.resources
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.4\Source\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.MainForm.resources
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.4\Source\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.GraphForm.resources
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.4\Source\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.Properties.Resources.resources
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.4\Source\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.csproj.GenerateResource.Cache
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.5\Source\ShimmerConnect\ShimmerConnect\bin\Debug\ShimmerConnect.exe.config
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.5\Source\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.exe
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.5\Source\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.pdb
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.5\Source\ShimmerConnect\ShimmerConnect\bin\Debug\ShimmerConnect.exe
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.5\Source\ShimmerConnect\ShimmerConnect\bin\Debug\ShimmerConnect.pdb
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.5\Source\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.Configure.resources
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.5\Source\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.Control.resources
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.5\Source\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.MainForm.resources
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.5\Source\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.GraphForm.resources
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.5\Source\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.Properties.Resources.resources
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.5\Source\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.csproj.GenerateResource.Cache
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.5\Source\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.csprojResolveAssemblyReference.cache
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.5b\Source\ShimmerConnect\ShimmerConnect\bin\Debug\ShimmerConnect.exe.config
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.5b\Source\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.exe
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.5b\Source\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.pdb
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.5b\Source\ShimmerConnect\ShimmerConnect\bin\Debug\ShimmerConnect.exe
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.5b\Source\ShimmerConnect\ShimmerConnect\bin\Debug\ShimmerConnect.pdb
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.5b\Source\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.csprojResolveAssemblyReference.cache
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.5b\Source\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.Configure.resources
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.5b\Source\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.Control.resources
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.5b\Source\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.MainForm.resources
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.5b\Source\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.GraphForm.resources
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.5b\Source\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.Properties.Resources.resources
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.5b\Source\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.csproj.GenerateResource.Cache
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.6\Source\ShimmerConnect\ShimmerConnect\bin\Debug\ShimmerConnect.exe.config
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.6\Source\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.exe
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.6\Source\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.pdb
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.6\Source\ShimmerConnect\ShimmerConnect\bin\Debug\ShimmerConnect.exe
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.6\Source\ShimmerConnect\ShimmerConnect\bin\Debug\ShimmerConnect.pdb
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.6\Source\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.csprojResolveAssemblyReference.cache
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.6\Source\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.Configure.resources
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.6\Source\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.Control.resources
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.6\Source\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.MainForm.resources
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.6\Source\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.GraphForm.resources
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.6\Source\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.Properties.Resources.resources
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.6\Source\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.csproj.GenerateResource.Cache
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.7\Source\ShimmerConnect\ShimmerConnect\bin\Debug\ShimmerConnect.exe.config
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.7\Source\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.exe
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.7\Source\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.pdb
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.7\Source\ShimmerConnect\ShimmerConnect\bin\Debug\ShimmerConnect.exe
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.7\Source\ShimmerConnect\ShimmerConnect\bin\Debug\ShimmerConnect.pdb
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.7\Source\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.csprojResolveAssemblyReference.cache
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.7\Source\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.Configure.resources
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.7\Source\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.Control.resources
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.7\Source\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.MainForm.resources
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.7\Source\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.GraphForm.resources
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.7\Source\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.Properties.Resources.resources
+C:\Users\JC Lim\Desktop\Shimmer Connect v0.7\Source\ShimmerConnect\ShimmerConnect\obj\Debug\ShimmerConnect.csproj.GenerateResource.Cache

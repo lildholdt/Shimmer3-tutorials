@@ -1,0 +1,18 @@
+To compile for linux (xbuild must be available) run:
+   make
+or
+   make linux
+
+
+Alternatively, to compile using monodevelop, to be run in Linux, a Symbol Constant must be defined (simply to modify the sizing and location of the different controls and forms to fit better in Linux). To do this select the ShimmerConnect project in the solution window and then, from the menu bar, Project->Shimmer->ShimmerConnect Options. In the newly opened window select Build->Compiler. In the "Define Symbols" field add the following: _PLATFORM_LINUX
+
+
+To run:
+   mono ShimmerConnect/bin/Release/ShimmerConnect.exe
+
+
+The target shimmer must be bound to an RFCOMM serial port. To do this run:
+   sudo rfcomm bind <n> <mac-address>
+with <n> being the number at the end of /dev/rfcomm<n> and <mac-address> being the MAC address of the target shimmer (find using "hcitool scan" command). E.g.
+   sudo rfcomm bind 0 00:06:66:42:17:AC
+Then in the "Select COM port" field of the application enter: /dev/rfcomm0
