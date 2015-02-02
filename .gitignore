@@ -41,22 +41,21 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
-2. Basic fall detection/Resources/Firmware/Shimmer3_FallDetection/Debug/
-2. Basic fall detection/Resources/PC Application/Source/Shimmer3_PCApp/obj/
-2. Basic fall detection/Resources/PC Application/Source/Shimmer3_PCApp/bin/
-3. Basic fall detection (Power saving)/Resources/Firmware/Shimmer3_FallDetection/Debug/Shimmer3_FallDetection.txt
-3. Basic fall detection (Power saving)/Resources/Firmware/Shimmer3_FallDetection/Debug/ccsObjs.opt
-3. Basic fall detection (Power saving)/Resources/Firmware/Shimmer3_FallDetection/Debug/
-3. Basic fall detection (Power saving)/Resources/PC Application/Source/Shimmer3_PCApp/bin/
-5. Basic pedometer/Firmware/Shimmer3_Pedometer/Debug/
-5. Basic pedometer/PC Application/Source/Shimmer3_PCApp/bin/
-5. Basic pedometer/PC Application/Source/Shimmer3_PCApp/obj/
-4. Alert button/Resources/Firmware/Shimmer3_AlertButton/Debug/
-3. Basic fall detection (Power saving)/Resources/PC Application/Source/Shimmer3_PCApp/obj/
 1. How to program/Resources/Sample firmware/Shimmer3_Blink/Debug/
 1. How to program/Resources/Sample firmware/Shimmer3_Bluetooth/Debug/
 1. How to program/Resources/Shimmer Connect v0.7/Shimmer Connect v0.7/Source/ShimmerConnect/ShimmerConnect/bin/
 1. How to program/Resources/Shimmer Connect v0.7/Shimmer Connect v0.7/Source/ShimmerConnect/ShimmerConnect/obj/
 1. How to program/Resources/Shimmer Connect v0.7/Shimmer Connect v0.7/3D Graphical Cube Example/Source/ShimmerConnect/ShimmerConnect/obj/
+2. Basic fall detection/Resources/Firmware/Shimmer3_FallDetection/Debug/
+2. Basic fall detection/Resources/PC Application/Source/Shimmer3_PCApp/obj/
+2. Basic fall detection/Resources/PC Application/Source/Shimmer3_PCApp/bin/
+3. Basic fall detection (Power saving)/Resources/Firmware/Shimmer3_FallDetection/Debug/
+3. Basic fall detection (Power saving)/Resources/PC Application/Source/Shimmer3_PCApp/bin/
+3. Basic fall detection (Power saving)/Resources/PC Application/Source/Shimmer3_PCApp/obj/
+4. Alert button/Resources/Firmware/Shimmer3_AlertButton/Debug/
 4. Alert button/Resources/PC Application/Source/Shimmer3_PCApp/obj/
 4. Alert button/Resources/PC Application/Source/Shimmer3_PCApp/bin/
+5. Basic pedometer/Firmware/Shimmer3_Pedometer/Debug/
+5. Basic pedometer/PC Application/Source/Shimmer3_PCApp/bin/
+5. Basic pedometer/PC Application/Source/Shimmer3_PCApp/obj/
+
