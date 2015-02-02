@@ -1,6 +1,0 @@
-C:\Users\Steffan\Dropbox\CareStore\Shimmer3\ShimmerConsole\ShimmerConsole\bin\Debug\ShimmerConsole.exe.config
-C:\Users\Steffan\Dropbox\CareStore\Shimmer3\ShimmerConsole\ShimmerConsole\bin\Debug\ShimmerConsole.exe
-C:\Users\Steffan\Dropbox\CareStore\Shimmer3\ShimmerConsole\ShimmerConsole\bin\Debug\ShimmerConsole.pdb
-C:\Users\Steffan\Dropbox\CareStore\Shimmer3\ShimmerConsole\ShimmerConsole\obj\Debug\ShimmerConsole.csprojResolveAssemblyReference.cache
-C:\Users\Steffan\Dropbox\CareStore\Shimmer3\ShimmerConsole\ShimmerConsole\obj\Debug\ShimmerConsole.exe
-C:\Users\Steffan\Dropbox\CareStore\Shimmer3\ShimmerConsole\ShimmerConsole\obj\Debug\ShimmerConsole.pdb
