@@ -1,0 +1,1 @@
+"./main.obj" "./system_pre_init.obj" "./LSM303DLHC/lsm303dlhc.obj" "./Bluetooth/RN42.obj" "./5xx_HAL/hal_ADC.obj" "./5xx_HAL/hal_Board.obj" "./5xx_HAL/hal_Button.obj" "./5xx_HAL/hal_DMA.obj" "./5xx_HAL/hal_I2C.obj" "./5xx_HAL/hal_UCS.obj" "./5xx_HAL/hal_pmm.obj" "../lnk_msp430f5437a.cmd" -l"libc.a" -l"libmath.a" 
