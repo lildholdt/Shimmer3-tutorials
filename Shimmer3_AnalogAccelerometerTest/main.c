@@ -10,7 +10,6 @@
 #include "lsm303dlhc.h"
 #include "math.h"
 #include "shimmer.h"
-#include "string.h"
 
 //Method declarations
 void Init(void);
@@ -18,16 +17,12 @@ uint8_t BtDataAvailable(uint8_t data);
 void StartSensing(void);
 void StopSensing(void);
 uint8_t Dma0ConversionDone(void);
-void AcquireData(void);
-void ProcessData(void);
-void send_float (float arg);
-void send_int (uint16_t value);
-void delay_ms(unsigned int ms);
 
 // Defines
 #define PACKET_SIZE        		3
 #define NUMBER_OF_SAMPLES 		10
 #define SAMPLE_FREQUENCY		1
+#define ADC_SAMPLES_SIZE		3
 
 // Arrays
 uint8_t txBuff[PACKET_SIZE];			// Transmit buffer
@@ -52,7 +47,7 @@ uint8_t 		peakHighDetected = 0,
 uint16_t 		numberOfSteps;					// Number of steps taken
 
 uint16_t *adcStartPtr;
-uint16_t test[4];
+uint16_t test[ADC_SAMPLES_SIZE];
 
 void main(void) {
 
@@ -105,36 +100,29 @@ void Init(void) {
 	P2IFG &= ~BIT3;      //clear flag
 	P2IE |= BIT3;        //enable interrupt
 
-
-	// Setup of LSM303DLHC
-	//LSM303DLHC_init();
-	//LSM303DLHC_accelInit(LSM303DLHC_ACCEL_50HZ,ACCEL_8G,0,1);
-
-
-
-
 	// Enable Bluetooth
-	         BT_init();
-	         BT_setRadioMode(SLAVE_MODE);
-	         BT_setFriendlyName("Shimmer3");
-	         //BT_setAuthentication(4);
-	         BT_setPIN("1234");
-	         BT_configure();
-
+	BT_init();
+	BT_setRadioMode(SLAVE_MODE);
+	BT_setFriendlyName("Shimmer3");
+	//BT_setAuthentication(4);
+	BT_setPIN("1234");
+	BT_configure();
 	BT_receiveFunction(&BtDataAvailable);
 
 	// Start sample timer
 	StartSensing();
 
-
-	adcStartPtr = ADC_init(MASK_INT_A1);
+	adcStartPtr = ADC_init(MASK_A_ACCEL);
 	DMA0_transferDoneFunction(&Dma0ConversionDone);
-	if(adcStartPtr)
-		DMA0_init(adcStartPtr, test, 1);
+	if (adcStartPtr) {
+		DMA0_init(adcStartPtr, test, ADC_SAMPLES_SIZE);
+	}
 
-
-
-
+	// Enable Analog ADC. It is necessary to enable the ADC, which is connected to P8.6
+	// of the MSP430. After this, we can read the accelerometer.
+	P8REN &= ~BIT6;      //disable pull down resistor
+	P8DIR |= BIT6;       //set as output
+	P8OUT |= BIT6;       //analog accel being used so take out of sleep mode
 }
 
 uint8_t BtDataAvailable(uint8_t data) {
@@ -153,12 +141,11 @@ uint8_t BtDataAvailable(uint8_t data) {
 **/
 uint8_t Dma0ConversionDone(void) {
 
-   DMA0_repeatTransfer(adcStartPtr, test, 1); //Destination address for next transfer
+   DMA0_repeatTransfer(adcStartPtr, test, ADC_SAMPLES_SIZE); //Destination address for next transfer
    ADC_disable();    //can disable ADC until next time sampleTimer fires (to save power)?
    DMA0_disable();
 
    Board_ledToggle(LED_GREEN0);
-   //send_int(test[0]);
 
    return 1;
 }
@@ -261,15 +248,11 @@ __interrupt void TIMER0_B1_ISR(void) {
    case  4: break;                        // TB0CCR2
    case  6: break;                        // TB0CCR3
    case  8:                               // TB0CCR4
-
 	   	   // Set CCR
 	   	   TB0CCR4 += (32768 / SAMPLE_FREQUENCY);
-	   	   //AcquireData();
-
+	   	   // Read from the ADC
 	   	   DMA0_enable();
 	   	   ADC_startConversion();
-
-
 	   break;
 
    case 10: break;                       // reserved
