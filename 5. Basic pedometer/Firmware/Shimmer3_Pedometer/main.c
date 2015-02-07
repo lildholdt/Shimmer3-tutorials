@@ -1,3 +1,14 @@
+/*-----------------------------------------------------------------------------
+
+	File: 		main.c
+	Version:   	1.0
+	Created:    07/02/2015
+	Author:		Steffan Lildholdt
+	Email:     	steffan@lildholdt.dk
+	Website:   	steffanlildholdt.dk
+
+-----------------------------------------------------------------------------*/
+
 #include <stdint.h>
 #include "msp430.h"
 #include "hal_pmm.h"
@@ -17,8 +28,6 @@ void StartSensing(void);
 void StopSensing(void);
 void AcquireData(void);
 void ProcessData(void);
-void send_float (float arg);
-void send_int (uint16_t value);
 void delay_ms(unsigned int ms);
 
 // Defines
@@ -111,13 +120,6 @@ void Init(void) {
 }
 
 uint8_t BtDataAvailable(uint8_t data) {
-
-	// Close BT connection
-	BT_disable();
-	P1IES &= ~BIT0; //look for rising edge
-	BT_connectionInterrupt(0);
-	btIsConnected = 0;
-	Board_ledOff(LED_BLUE);
 	return 1;
 }
 
@@ -155,13 +157,12 @@ __interrupt void Port1_ISR(void)
 	         txBuff[1] = ((numberOfSteps >> 0) & 0xff);
 	         txBuff[2] = ((numberOfSteps >> 8) & 0xff);
 
-	         if(btIsConnected)
-	         {
-	        	 BT_write(txBuff, PACKET_SIZE);
-	         }
+	         // Ensure that the BT module has been initialized
+	         delay_ms(500);
+
+	         BT_write(txBuff, PACKET_SIZE);
 
 	         numberOfSteps = 0;
-
 
 	      } else {
 	         //BT is not connected
@@ -202,7 +203,9 @@ __interrupt void Port2_ISR(void) {
    switch (__even_in_range(P2IV, P2IV_P2IFG7)) {
    //DOCK
    case  P2IV_P2IFG3:
-      if(P2IN & BIT3) {
+
+	   if(P2IN & BIT3) {
+
          // Shimmer is docked
     	 P2IES |= BIT3;    //look for falling edge
          Board_ledOn(LED_YELLOW0);
@@ -212,13 +215,26 @@ __interrupt void Port2_ISR(void) {
          BT_setRadioMode(SLAVE_MODE);
          BT_setFriendlyName("Shimmer3");
          //BT_setAuthentication(4);
-         BT_setPIN("1234");
+         //BT_setPIN("1234");
          BT_configure();
 
       } else {
+
     	 // Shimmer is NOT docked
          P2IES &= ~BIT3;   //look for rising edge
          Board_ledOff(LED_YELLOW0);
+
+         // Notify PC that the BT connection will be closed
+         BT_write("D",1);
+
+         // Ensure that the package has been sent
+         delay_ms(500);
+
+         // Close BT connection
+         BT_disable();
+         BT_connectionInterrupt(0);
+         btIsConnected = 0;
+         Board_ledOff(LED_BLUE);
 
       }
       break;
@@ -239,9 +255,9 @@ __interrupt void TIMER0_B1_ISR(void) {
    case  6: break;                        // TB0CCR3
    case  8:                               // TB0CCR4
 
-	   	   // Set CCR
-	   	   TB0CCR4 += (32768 / SAMPLE_FREQUENCY);
-	   	   AcquireData();
+	   // Set CCR
+	   TB0CCR4 += (32768 / SAMPLE_FREQUENCY);
+	   AcquireData();
 	   break;
 
    case 10: break;                       // reserved
@@ -311,28 +327,6 @@ void AcquireData(void) {
 		//Board_ledToggle(LED_YELLOW0);
 		sampleCounter = 0;
 	}
-}
-
-void send_float (float arg)
-{
-  // get access to the float as a byte-array:
-  uint8_t * data = (uint8_t *) &arg;
-
-  // write the data to the serial
-  if (btIsConnected) {
-  	BT_write(data, sizeof (arg));
-  }
-}
-
-void send_int (uint16_t value)
-{
-	uint8_t data[2];
-	data[1] = ((value >> 8) & 0xff);
-	data[0] = ((value >> 0) & 0xff);
-
-	 if (btIsConnected) {
-		 BT_write(data, sizeof (data));
-	 }
 }
 
 void delay_ms(unsigned int ms)

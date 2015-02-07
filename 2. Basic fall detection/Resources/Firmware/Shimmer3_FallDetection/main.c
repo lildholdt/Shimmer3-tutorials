@@ -1,3 +1,14 @@
+/*-----------------------------------------------------------------------------
+
+	File: 		main.c
+	Version:   	1.0
+	Created:    07/02/2015
+	Author:		Steffan Lildholdt
+	Email:     	steffan@lildholdt.dk
+	Website:   	steffanlildholdt.dk
+
+-----------------------------------------------------------------------------*/
+
 #include <stdint.h>
 #include "msp430.h"
 #include "hal_pmm.h"

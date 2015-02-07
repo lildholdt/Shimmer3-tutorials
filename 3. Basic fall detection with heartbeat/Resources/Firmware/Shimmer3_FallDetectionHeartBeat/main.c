@@ -1,3 +1,14 @@
+/*-----------------------------------------------------------------------------
+
+	File: 		main.c
+	Version:   	1.0
+	Created:    07/02/2015
+	Author:		Steffan Lildholdt
+	Email:     	steffan@lildholdt.dk
+	Website:   	steffanlildholdt.dk
+
+-----------------------------------------------------------------------------*/
+
 #include <stdint.h>
 #include "msp430.h"
 #include "hal_pmm.h"
@@ -18,9 +29,10 @@ void AcquireData(void);
 void ProcessData(void);
 
 // Defines
-#define NUMBER_OF_SAMPLES 		50
-#define FALL_THRESHOLD			4000
-#define SAMPLE_FREQUENCY		50
+#define NUMBER_OF_SAMPLES 			50
+#define FALL_THRESHOLD				4000
+#define SAMPLE_FREQUENCY			50
+#define HEARTBEAT_INTERVAL			10
 
 // Arrays
 uint8_t accel_8bit[6];					// Raw 8 bit values samples from the accelerometer
@@ -31,6 +43,7 @@ float sampleBuff[NUMBER_OF_SAMPLES];	// All normalized accelerations
 float accel_normalized;					// Normalized acceleration
 uint8_t btIsConnected,					// Flag to check if Bluetooth is connected
 		sampleCounter,					// Number of current samples
+		heartbeatCounter,				// Controls the occurrence of heart beats
 		i;								// Counter used in for loops
 
 void main(void) {
@@ -46,7 +59,8 @@ void Init(void) {
 
 	// Global variables
 	btIsConnected = 0;		// Bluetooth is not connected initially
-	sampleCounter = 0;		// No samples is acquired
+	sampleCounter = 0;		// No samples acquired initially
+	heartbeatCounter = 0;
 
 	// Init MSP430
 	Board_init();
@@ -67,9 +81,9 @@ void Init(void) {
 
 	// Enable Bluetooth
 	BT_init();
-	BT_disableRemoteConfig(1);
+	//BT_disableRemoteConfig(1);
 	BT_setRadioMode(SLAVE_MODE);
-	//BT_setFriendlyName("Shimmer3");
+	BT_setFriendlyName("Shimmer3");
 	//BT_setAuthentication(4);
 	//BT_setPIN("1234");
 	BT_configure();
@@ -92,7 +106,9 @@ uint8_t BtDataAvailable(uint8_t data) {
 }
 
 void StartSensing(void) {
-	TB0CCR4 = (32768 / SAMPLE_FREQUENCY);
+	TB0CCR3 = 32768;						//Start heart beat timer
+	TB0CCTL3 = CCIE;
+	TB0CCR4 = (32768 / SAMPLE_FREQUENCY);	//Start sample timer
 	TB0CCTL4 = CCIE;
 	TB0CTL = TBSSEL_1 + MC_2 + TBCLR;
 }
@@ -145,21 +161,33 @@ __interrupt void Port1_ISR(void)
 }
 
 // Interrupt Service Routine
-// Handles acquition of samples from the accelerometer
+// Handles acquition of samples from the accelerometer and status blink of LED
 #pragma vector=TIMER0_B1_VECTOR
 __interrupt void TIMER0_B1_ISR(void) {
    switch(__even_in_range(TB0IV,14)) {
-   case  0: break;                        // No interrupt
-   case  2: break;                        // TB0CCR1
-   case  4: break;                        // TB0CCR2
-   case  6: break;                        // TB0CCR3
-   case  8:                               // TB0CCR4
+   case  0: break;                     	// No interrupt
+   case  2: break;                     	// TB0CCR1
+   case  4: break;                     	// TB0CCR2
+   case  6:								// TB0CCR3
 
-	   	   // Set CCR
-	   	   TB0CCR4 += (32768 / SAMPLE_FREQUENCY);
-	   	   AcquireData();
+	   TB0CCR3 += 32768;
+	   if(heartbeatCounter == HEARTBEAT_INTERVAL)
+	   {
+		   if(btIsConnected)
+		   {
+			   BT_write("H",1);
+		   }
+		   heartbeatCounter = 0;
+	   }
+	   heartbeatCounter++;
 
-	      break;
+	   break;
+   case  8:                            	// TB0CCR4
+	   // Set CCR
+	   TB0CCR4 += (32768 / SAMPLE_FREQUENCY);
+	   AcquireData();
+	   break;
+
    case 10: break;                       // reserved
    case 12: break;                       // reserved
    case 14: break;                       // TBIFG overflow handler

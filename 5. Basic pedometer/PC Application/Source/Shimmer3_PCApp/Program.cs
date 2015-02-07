@@ -1,4 +1,15 @@
-﻿using System;
+﻿/*-----------------------------------------------------------------------------
+
+	File: 		Program.cs
+	Version:   	1.0
+	Created:    07/02/2015
+	Author:		Steffan Lildholdt
+	Email:     	steffan@lildholdt.dk
+	Website:   	steffanlildholdt.dk
+
+-----------------------------------------------------------------------------*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,8 +27,8 @@ namespace Shimmer3_PCApp
 {
     class Program
     {
-        const string SHIMMER_ID = "5F05";                                                       // ID of the Shimmer. Located on the back of the device
-        const string SHIMMER_PIN = "1234";                                                      // Bluetooth PIN code. Set up in the firmware.
+        static string SHIMMER_ID = "";                                                          // ID of the Shimmer. Located on the back of the device
+        static string SHIMMER_PIN = "1234";                                                     // Bluetooth PIN code. Set up in the firmware.
 
         static bool connected = false;                                                          // Flag to handle the Bluetooth connection process
         static bool connecting = false;                                                         // Flag to handle the Bluetooth connection process
@@ -28,21 +39,26 @@ namespace Shimmer3_PCApp
 
         // Connection timer
         static System.Timers.Timer connectionTimer;
-        static System.Timers.Timer disconnectTimer;
 
         static Thread readThread;
 
         static void Main(string[] args)
         {
+            Console.WriteLine("\n--------------------------------------");
+            Console.WriteLine("Shimmer 3 Basic pedometer");
+            Console.WriteLine("--------------------------------------\n");
+
+            Console.Write("Input Shimmer ID: ");
+            SHIMMER_ID = Console.ReadLine();
+            Console.Write("Input Shimmer pin: ");
+            SHIMMER_PIN = Console.ReadLine();
+
+            Console.WriteLine("\r\nWaiting for Shimmer 3 to be placed in the dock\r\n");
+
             // Set up connect timer
             connectionTimer = new System.Timers.Timer(1000);
             connectionTimer.Elapsed += connectionTimer_Elapsed;
             connectionTimer.Enabled = true;
-
-            // Set up disconnect timer
-            disconnectTimer = new System.Timers.Timer(2000);
-            disconnectTimer.Elapsed += disconnectTimer_Elapsed;
-            disconnectTimer.Enabled = false;
 
             // Keep alive
             Console.ReadLine();
@@ -58,18 +74,6 @@ namespace Shimmer3_PCApp
                 connecting = true;
                 InitBTConnection();
             }
-        }
-
-        /// <summary>
-        /// Ensures that a communication window of 2 seconds is maintained
-        /// </summary>
-        static void disconnectTimer_Elapsed(object sender, ElapsedEventArgs e)
-        {
-            DisposeBTConnection();
-            disconnectTimer.Enabled = false;
-            readThread.Abort();  
-            Console.WriteLine("Closed connection to Shimmer3-" + SHIMMER_ID);
-            connected = false;
         }
 
         /// <summary>
@@ -95,7 +99,7 @@ namespace Shimmer3_PCApp
             if (pairedDevice == null)
             {
                 localComponent.DiscoverDevicesAsync(255, true, true, true, true, null);
-                Console.WriteLine("Shimmer3-" + SHIMMER_ID + " not paired -> Begin discovery");
+                //Console.WriteLine("Shimmer3-" + SHIMMER_ID + " not paired -> Begin discovery");
             }
 
             // If the device is already paired begin the connection process
@@ -106,7 +110,7 @@ namespace Shimmer3_PCApp
 
                 // async connection method
                 localClient.BeginConnect(pairedDevice.DeviceAddress, BluetoothService.SerialPort, new AsyncCallback(Connected_Callback), pairedDevice);
-                Console.WriteLine("Shimmer3-" + SHIMMER_ID + " already paired -> Begin connect");
+                //Console.WriteLine("Shimmer3-" + SHIMMER_ID + " already paired -> Begin connect");
             }
         }
 
@@ -150,11 +154,11 @@ namespace Shimmer3_PCApp
             {
                 if (e.Devices[i].Remembered)
                 {
-                    Console.WriteLine(e.Devices[i].DeviceName + " (" + e.Devices[i].DeviceAddress + "): Device is known");
+                    //Console.WriteLine(e.Devices[i].DeviceName + " (" + e.Devices[i].DeviceAddress + "): Device is known");
                 }
                 else
                 {
-                    Console.WriteLine(e.Devices[i].DeviceName + " (" + e.Devices[i].DeviceAddress + "): Device is unknown");
+                    //Console.WriteLine(e.Devices[i].DeviceName + " (" + e.Devices[i].DeviceAddress + "): Device is unknown");
                 }
             }
         }
@@ -171,7 +175,7 @@ namespace Shimmer3_PCApp
 
             if (device == null)
             {
-                Console.WriteLine("Shimmer3-" + SHIMMER_ID + " could not be discovered");
+                //Console.WriteLine("Shimmer3-" + SHIMMER_ID + " could not be discovered");
                 connecting = false;
             }
             else
@@ -186,7 +190,7 @@ namespace Shimmer3_PCApp
                 }
                 else
                 {
-                    Console.WriteLine("Shimmer3-" + SHIMMER_ID + " could not be paired");
+                    //Console.WriteLine("Shimmer3-" + SHIMMER_ID + " could not be paired");
                     connecting = false;
                 }
             }
@@ -200,9 +204,7 @@ namespace Shimmer3_PCApp
         {
             if (result.IsCompleted && IsBTConnected())
             {
-                Console.WriteLine("Shimmer3-" + SHIMMER_ID + " is now connected");
-
-                disconnectTimer.Enabled = true;
+                //Console.WriteLine("Shimmer3-" + SHIMMER_ID + " is now connected");
 
                 //Set flags
                 connected = true;
@@ -217,7 +219,7 @@ namespace Shimmer3_PCApp
             }
             else
             {
-                Console.WriteLine("Shimmer3-" + SHIMMER_ID + " could not be connected");
+                //Console.WriteLine("Shimmer3-" + SHIMMER_ID + " could not be connected");
 
                 DisposeBTConnection();
 
@@ -245,6 +247,14 @@ namespace Shimmer3_PCApp
 
                     data[numBytes] = (byte)next;
                     numBytes++;
+
+                    if (data[0] == 'D')
+                    {
+                        DisposeBTConnection();  
+                        //Console.WriteLine("Closed connection to Shimmer3-" + SHIMMER_ID);
+                        connected = false;
+                        readThread.Abort();
+                    }
 
                     if (numBytes == 3 && data[0] == 'P')
                     {

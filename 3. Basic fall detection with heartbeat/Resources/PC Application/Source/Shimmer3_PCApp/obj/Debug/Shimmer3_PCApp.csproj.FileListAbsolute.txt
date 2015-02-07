@@ -1,0 +1,15 @@
+C:\Users\Steffan\Documents\GitHub\Shimmer-3-tutorials\2. Basic fall detection\Resources\PC Application\Source\Shimmer3_PCApp\bin\Debug\Shimmer3_PCApp.exe.config
+C:\Users\Steffan\Documents\GitHub\Shimmer-3-tutorials\2. Basic fall detection\Resources\PC Application\Source\Shimmer3_PCApp\bin\Debug\Shimmer3_PCApp.exe
+C:\Users\Steffan\Documents\GitHub\Shimmer-3-tutorials\2. Basic fall detection\Resources\PC Application\Source\Shimmer3_PCApp\bin\Debug\Shimmer3_PCApp.pdb
+C:\Users\Steffan\Documents\GitHub\Shimmer-3-tutorials\2. Basic fall detection\Resources\PC Application\Source\Shimmer3_PCApp\obj\Debug\Shimmer3_PCApp.csprojResolveAssemblyReference.cache
+C:\Users\Steffan\Documents\GitHub\Shimmer-3-tutorials\2. Basic fall detection\Resources\PC Application\Source\Shimmer3_PCApp\obj\Debug\Shimmer3_PCApp.exe
+C:\Users\Steffan\Documents\GitHub\Shimmer-3-tutorials\2. Basic fall detection\Resources\PC Application\Source\Shimmer3_PCApp\obj\Debug\Shimmer3_PCApp.pdb
+C:\Users\Steffan\Documents\GitHub\Shimmer-3-tutorials\3. Basic fall detection with heart beat\Resources\PC Application\Source\Shimmer3_PCApp\bin\Debug\Shimmer3_PCApp.exe.config
+C:\Users\Steffan\Documents\GitHub\Shimmer-3-tutorials\3. Basic fall detection with heart beat\Resources\PC Application\Source\Shimmer3_PCApp\obj\Debug\Shimmer3_PCApp.exe
+C:\Users\Steffan\Documents\GitHub\Shimmer-3-tutorials\3. Basic fall detection with heart beat\Resources\PC Application\Source\Shimmer3_PCApp\obj\Debug\Shimmer3_PCApp.pdb
+C:\Users\Steffan\Documents\GitHub\Shimmer-3-tutorials\3. Basic fall detection with heartbeat\Resources\PC Application\Source\Shimmer3_PCApp\bin\Debug\Shimmer3_PCApp.exe.config
+C:\Users\Steffan\Documents\GitHub\Shimmer-3-tutorials\3. Basic fall detection with heartbeat\Resources\PC Application\Source\Shimmer3_PCApp\obj\Debug\Shimmer3_PCApp.exe
+C:\Users\Steffan\Documents\GitHub\Shimmer-3-tutorials\3. Basic fall detection with heartbeat\Resources\PC Application\Source\Shimmer3_PCApp\obj\Debug\Shimmer3_PCApp.pdb
+C:\Users\Steffan\Documents\GitHub\Shimmer-3-tutorials\3. Basic fall detection with heartbeat\Resources\PC Application\Source\Shimmer3_PCApp\bin\Debug\Shimmer3_PCApp.exe
+C:\Users\Steffan\Documents\GitHub\Shimmer-3-tutorials\3. Basic fall detection with heartbeat\Resources\PC Application\Source\Shimmer3_PCApp\bin\Debug\Shimmer3_PCApp.pdb
+C:\Users\Steffan\Documents\GitHub\Shimmer-3-tutorials\3. Basic fall detection with heartbeat\Resources\PC Application\Source\Shimmer3_PCApp\obj\Debug\Shimmer3_PCApp.csprojResolveAssemblyReference.cache

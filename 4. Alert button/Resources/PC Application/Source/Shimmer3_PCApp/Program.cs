@@ -1,4 +1,15 @@
-﻿using System;
+﻿/*-----------------------------------------------------------------------------
+
+	File: 		Program.cs
+	Version:   	1.0
+	Created:    07/02/2015
+	Author:		Steffan Lildholdt
+	Email:     	steffan@lildholdt.dk
+	Website:   	steffanlildholdt.dk
+
+-----------------------------------------------------------------------------*/
+
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,11 +36,6 @@ namespace ShimmerConsole
             }
 
             while (true) ;
-        }
-
-        static void exit()
-        {
-
         }
 
         static void Connect()
