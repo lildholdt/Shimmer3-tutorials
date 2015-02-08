@@ -32,19 +32,15 @@ void delay_ms(unsigned int ms);
 
 // Defines
 #define PACKET_SIZE        		3
-#define NUMBER_OF_SAMPLES 		10
 #define SAMPLE_FREQUENCY		10
 
 // Arrays
 uint8_t txBuff[PACKET_SIZE];			// Transmit buffer
 uint8_t accel_8bit[6];					// Raw 8 bit values samples from the accelerometer
 int16_t accel_16bit[3];					// Converted 16 bit values from accel_8bit[]
-float sampleBuff[NUMBER_OF_SAMPLES];	// All normalized accelerations
 
 // Variables
 uint8_t 		btIsConnected,					// Flag to check if Bluetooth is connected
-				sampleCounter,					// Number of current samples
-				processing,						// Flag indicating that processing is taking place
 				i;								// Counter used in for loops
 
 float 			accel_normalized = 0,			// Normalized acceleration
@@ -70,7 +66,6 @@ void Init(void) {
 
 	// Global variables
 	btIsConnected = 0;		// Bluetooth is not connected initially
-	sampleCounter = 0;		// No samples is acquired
 	numberOfSteps = 0;		// No steps have been taken initially
 
 
@@ -270,63 +265,54 @@ __interrupt void TIMER0_B1_ISR(void) {
 // into three 16 bit values which is placed in the sample array
 void AcquireData(void) {
 
-	if(sampleCounter < NUMBER_OF_SAMPLES)
+	// Read sample from LSM303DLHC accelerometer
+	LSM303DLHC_getAccel(accel_8bit);
+
+	// 6 uint8_t are read from the accelerometer
+	// These are converted into 3 int16_t values
+	// Structure of accelBuff: [X_LSB X_MSB Y_LSB Y_MSB Z_LSB Z_MSB]
+	for (i = 0; i < 3; i++) {
+		accel_16bit[i] = ((int16_t) accel_8bit[(2 * i) + 1] << 8) | (accel_8bit[2 * i] & 0xff);
+	}
+
+	// Calculating normalized acceleration
+	// sqrt(X^2 + Y^2 + Z^2)
+	accel_normalized = pow(accel_16bit[0], 2) + pow(accel_16bit[1], 2) + pow(accel_16bit[2], 2);
+	accel_normalized = sqrt(accel_normalized);
+
+	currentSample = accel_normalized;
+
+	// Find high and low peak values
+	if(lastSample != 0)
 	{
-		// Read sample from LSM303DLHC accelerometer
-		LSM303DLHC_getAccel(accel_8bit);
-
-		// 6 uint8_t are read from the accelerometer
-		// These are converted into 3 int16_t values
-		// Structure of accelBuff: [X_LSB X_MSB Y_LSB Y_MSB Z_LSB Z_MSB]
-		for (i = 0; i < 3; i++) {
-			accel_16bit[i] = ((int16_t) accel_8bit[(2 * i) + 1] << 8) | (accel_8bit[2 * i] & 0xff);
-		}
-
-		// Calculating normalized acceleration
-		// sqrt(X^2 + Y^2 + Z^2)
-		accel_normalized = pow(accel_16bit[0], 2) + pow(accel_16bit[1], 2) + pow(accel_16bit[2], 2);
-		accel_normalized = sqrt(accel_normalized);
-
-		currentSample = accel_normalized;
-
-		// Find high and low peak values
-		if(lastSample != 0)
+		if((currentSample - lastSample) > 1000)
 		{
-			if((currentSample - lastSample) > 1000)
-			{
-				peakHighDetected = 1;
-				peakPositionDifference = 0;
-			}
-
-			if ((currentSample - lastSample) < -1000)
-			{
-				peakLowDetected = 1;
-			}
-
-			if(peakHighDetected && !peakLowDetected)
-			{
-				peakPositionDifference++;
-			}
-		}
-
-		// Check if a step has been taken
-		if(peakLowDetected && peakHighDetected && peakPositionDifference < 4)
-		{
-			numberOfSteps++;
-			peakHighDetected = 0;
-			peakLowDetected = 0;
+			peakHighDetected = 1;
 			peakPositionDifference = 0;
-			Board_ledToggle(LED_RED);
 		}
 
-		lastSample = currentSample;
-		sampleCounter++;
+		if ((currentSample - lastSample) < -1000)
+		{
+			peakLowDetected = 1;
+		}
+
+		if(peakHighDetected && !peakLowDetected)
+		{
+			peakPositionDifference++;
+		}
 	}
-	else
+
+	// Check if a step has been taken
+	if(peakLowDetected && peakHighDetected && peakPositionDifference < 4)
 	{
-		//Board_ledToggle(LED_YELLOW0);
-		sampleCounter = 0;
+		numberOfSteps++;
+		peakHighDetected = 0;
+		peakLowDetected = 0;
+		peakPositionDifference = 0;
+		Board_ledToggle(LED_RED);
 	}
+
+	lastSample = currentSample;
 }
 
 void delay_ms(unsigned int ms)
