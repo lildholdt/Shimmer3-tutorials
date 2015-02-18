@@ -37,7 +37,7 @@ $RECYCLE.BIN/
 
 # Visual studio files
 *.suo
-
+*.exe
 
 # Directories potentially created on remote AFP share
 .AppleDB
